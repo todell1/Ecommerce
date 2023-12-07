@@ -1,0 +1,44 @@
+<h1>Shipping Information</h1>
+<br>
+<%= form_with url: checkout_shipping_address_path, local: true, scope: :shipping_address do |f| %>
+
+  <%= f.hidden_field :user_id, value: current_user.present? ? current_user.id : nil %>
+  <%= f.label :full_name %><br/>
+  <%= f.text_field :full_name, value: @shipping_address&.full_name %><br>
+  <%= f.label :address %><br/>
+  <%= f.text_field :address, value: @shipping_address&.address %><br>
+  <%= f.label :apartment %><br/>
+  <%= f.text_field :apartment, value: @shipping_address&.apartment %><br>
+  <%= f.label :city %><br/>
+  <%= f.text_field :city, value: @shipping_address&.city %><br>
+  <%= f.label :state %><br/>
+  <%= f.text_field :state, value: @shipping_address&.state %><br>
+  <%= f.label :zipcode %><br/>
+  <%= f.text_field :zipcode, value: @shipping_address&.zipcode %><br>
+  <%= f.label :country %><br/>
+  <%= f.text_field :country, value: @shipping_address&.country %><br>
+  <%= f.label :phone_number %><br/>
+  <%= f.text_field :phone_number, value: @shipping_address&.phone_number %><br/>
+  <br/>
+  <%= f.submit 'Proceed to Payment', class: 'btn btn-primary'  %>
+<% end %>
+
+
+
+<script>
+  document.getElementById("shipping-form").addEventListener("submit", function(event) {
+    const requiredFields = document.querySelectorAll(".required");
+    let allFieldsValid = true;
+
+    requiredFields.forEach(function(field) {
+      if (field.value.trim() === "") {
+        allFieldsValid = false;
+      }
+    });
+    
+    if (!allFieldsValid) {
+      event.preventDefault();
+      alert("Please complete all required fields.");
+    }
+  });
+</script>

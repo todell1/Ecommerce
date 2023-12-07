@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: rams
+#
+#  id          :bigint           not null, primary key
+#  description :text
+#  height      :decimal(, )
+#  name        :string
+#  price       :decimal(, )
+#  quantity    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  height: 9.99
+
+two:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  height: 9.99

@@ -1,0 +1,33 @@
+<h1>Storages</h1>
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Add to Cart</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @storages.each do |storage| %>
+      <tr>
+        <td><%= link_to storage.name, storage_path(storage) %></td>
+        <td><%= storage.price %></td>
+        <td class = "d-flex">
+          <%= form_with url: cart_items_path, method: :post, local: false do |f| %>
+            <%= hidden_field_tag :type, 'Storage' %>
+            <%= hidden_field_tag :id, storage.id %>
+
+            <div class="form-group mr-2d">
+              <%= label_tag :quantity, 'Quantity' %>
+              <%= number_field_tag :quantity, 1, min: 1, class: 'form-control'%>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,41 @@
+
+<h1>Thank you for your purchase!</h1>
+<br/>
+
+
+<h3>Order Number: <%= @order_number %></h3>
+<br/>
+<h2>Order Summary</h2>
+<br/>
+<h3>Purchased Items:</h3>
+<% grand_total = 0 %>
+<body class="summary-page">
+
+<% @cart_items.each do |item| %>
+  <p>
+    <%= item.productable.name %> - <%= item.quantity %> - <%= item.total_price %>
+  </p>
+  <% grand_total += item.total_price %>
+<% end %>
+<h3>Total:<%= number_to_currency(grand_total) %></h3> 
+
+<br/>
+<h3>Shipping Address:</h3>
+<p>
+  <%= @shipping_address.full_name %><br>
+  <%= @shipping_address.address %><br>
+  <%= @shipping_address.apartment %><br>
+  <%= @shipping_address.city %>, <%= @shipping_address.state %> <%= @shipping_address.zipcode %><br>
+  <%= @shipping_address.country %><br>
+  <%= @shipping_address.phone_number %>
+</p>
+
+<h3>Payment Information:</h3>
+<p>
+  Card Number: **** **** **** <br>
+</p>
+
+<% current_cart.cart_items.destroy_all %>
+<%= link_to "Back to Home", root_path, class: "btn btn-primary" %>
+
+

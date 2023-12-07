@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: storages
+#
+#  id           :bigint           not null, primary key
+#  description  :text
+#  gen          :string
+#  name         :string
+#  price        :decimal(, )
+#  quantity     :integer
+#  speed        :integer
+#  storage_size :string
+#  storage_type :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  type: 
+  gen: MyString
+  storage_size: MyString
+  speed: 1
+
+two:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  type: 
+  gen: MyString
+  storage_size: MyString
+  speed: 1

@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: cpus
+#
+#  id          :bigint           not null, primary key
+#  description :text
+#  name        :string
+#  price       :decimal(, )
+#  quantity    :integer
+#  socket      :string
+#  tdp         :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  tpd: MyString
+  socket: MyString
+
+two:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  tpd: MyString
+  socket: MyString

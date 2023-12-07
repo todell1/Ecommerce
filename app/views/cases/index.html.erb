@@ -1,0 +1,33 @@
+<h1>Cases</h1>
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cases.each do |case_item| %>
+      <tr>
+        <td><%= link_to case_item.name, case_path(case_item) %></td>
+        <td><%= case_item.price %></td>
+        <td class="d-flex">
+          <%= form_with url: cart_items_path, method: :post, local: true, class: 'd-inline' do |f| %>
+            <%= hidden_field_tag :type, 'Case' %>
+            <%= hidden_field_tag :id, case_item.id %>
+            <%= hidden_field_tag :quantity, 1 %>
+            <div class="form-group mr-2">
+              <%= label_tag :quantity, 'Quantity' %>
+              <%= number_field_tag :quantity, 1, min: 1, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

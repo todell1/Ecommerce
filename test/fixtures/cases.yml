@@ -1,0 +1,36 @@
+# == Schema Information
+#
+# Table name: cases
+#
+#  id                      :bigint           not null, primary key
+#  air_cooler_clearance    :integer
+#  description             :text
+#  gpu_clearance           :integer
+#  gpu_slots               :decimal(, )
+#  liquid_cooler_clearance :integer
+#  name                    :string
+#  price                   :decimal(, )
+#  quantity                :integer
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#
+
+one:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  gpu_clearance: 1
+  gpu_slots: 1
+  air_cooler_clearance: 1
+  liquid_cooler_clearance: 1
+
+two:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  gpu_clearance: 1
+  gpu_slots: 1
+  air_cooler_clearance: 1
+  liquid_cooler_clearance: 1

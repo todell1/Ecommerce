@@ -1,0 +1,52 @@
+<h1>CEO Computer Building Website</h1>
+
+<h2>Component Pages</h2>
+
+<div class="row">
+  <div class="col-md-3">
+    <%= link_to image_tag("motherboard.jpg.webp", class: 'w-100', style: 'max-width: 32rem;'), motherboards_path, class: "square-link" %>
+    <h4>Motherboards</h4>
+  </div>
+  
+  <div class="col-md-3">
+    <%= link_to image_tag("cpu.jpg",class: 'w-100', style: 'max-width: 32rem;'), cpus_path, class: "square-link" %>
+    <h4>CPUs</h4>
+  </div>
+  
+  <div class="col-md-3">
+    <%= link_to image_tag("graphics_card.avif",class: 'w-100', style: 'max-width: 32rem;'), gpus_path, class: "square-link" %>
+    <h4>Graphics Cards</h4>
+  </div>
+  
+  <div class="col-md-3">
+    <%= link_to image_tag("ram.webp",class: 'w-100', style: 'max-width: 32rem;'), rams_path, class: "square-link" %>
+    <h4>Memory Modules</h4>
+  </div>
+
+  <div class="col-md-3">
+    <%= link_to image_tag("psu.jpg",class: 'w-100', style: 'max-width: 32rem;'), psus_path, class: "square-link" %>
+    <h4>Power Supplies</h4>
+  </div>
+
+  <div class="col-md-3">
+    <%= link_to image_tag("coolers.jpg", class: 'w-100', style: 'max-width: 32rem;'), coolers_path, class: "square-link" %>
+    <h4>Coolers</h4>
+  </div>
+
+  <div class="col-md-3">
+    <%= link_to image_tag("storages.jpg",class: 'w-100', style: 'max-width: 32rem;'), storages_path, class: "square-link" %>
+    <h4>Storages</h4>
+  </div>
+
+  <div class="col-md-3">
+    <%= link_to image_tag("cases.png", class: 'w-100', style: 'max-width: 32rem;'), cases_path, class: "square-link" %>
+    <h4>Cases</h4>
+  </div>
+</div>
+<% if @cart %>
+  <li class="nav-item">
+    <%= link_to cart_path, class: 'nav-link' do %>
+      <i class="bi bi-cart"></i> Cart (<%= @cart.cart_items.sum(:quantity) %>)
+    <% end %>
+  </li>
+<% end %>

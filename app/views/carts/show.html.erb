@@ -1,0 +1,41 @@
+<h1>Shopping Cart</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart.cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= cart_item.productable.name %></td>
+        <td><%= cart_item.productable.price %></td>
+        <td>
+          <%= form_for cart_item, url: cart_item_path(cart_item), method: :patch do |f| %>
+            <%= f.number_field :quantity, value: cart_item.quantity, min: 0 %>
+            <%= f.submit 'Update',class: 'btn btn-primary' %>
+          <% end %>
+        </td>
+        <td><%= cart_item.total_price %></td>
+        <td>
+          <%= button_to 'Remove', cart_item_path(cart_item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+
+    <% end %>
+    <tr>
+      <td colspan="3"></td>
+      <td><strong>Total:</strong></td>
+      <td><%= number_to_currency(@cart.total_price) %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'Back', request.referrer || root_path, class: 'btn btn-primary' %>
+<%= link_to 'Continue Shopping', root_path, class: 'btn btn-primary' %>
+<%= link_to 'Proceed to Checkout', checkout_shipping_path, class: 'btn btn-primary' %>
+

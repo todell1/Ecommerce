@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: psus
+#
+#  id          :bigint           not null, primary key
+#  description :text
+#  efficiency  :string
+#  form        :string
+#  name        :string
+#  price       :decimal(, )
+#  quantity    :integer
+#  wattage     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  wattage: 1
+  efficiency: MyString
+  form: MyString
+
+two:
+  name: MyString
+  price: 9.99
+  description: MyText
+  quantity: 1
+  wattage: 1
+  efficiency: MyString
+  form: MyString

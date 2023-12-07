@@ -1,0 +1,18 @@
+<h1>Order Summary</h1>
+
+<p>Order Number: <%= @order.order_number %></p>
+
+<br/>
+<h3>Shipping Address:</h3>
+<p>
+  <%= @shipping_address.full_name %><br>
+  <%= @shipping_address.address %><br>
+  <%= @shipping_address.apartment %><br>
+  <%= @shipping_address.city %>, <%= @shipping_address.state %> <%= @shipping_address.zipcode %><br>
+  <%= @shipping_address.country %><br>
+  <%= @shipping_address.phone_number %>
+</p>
+
+<p>Payment Information:</p>
+<p>Card Number: **** **** ****</p>
+

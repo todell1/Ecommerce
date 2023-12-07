@@ -1,0 +1,43 @@
+# == Schema Information
+#
+# Table name: prebuilds
+#
+#  id          :bigint           not null, primary key
+#  case        :string
+#  cooler      :string
+#  cpu         :string
+#  gpu         :string
+#  motherboard :string
+#  name        :string
+#  price       :decimal(, )
+#  psu         :string
+#  quantity    :integer
+#  ram         :string
+#  storage     :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  cpu: MyString
+  cooler: MyString
+  case: MyString
+  gpu: MyString
+  motherboard: MyString
+  psu: MyString
+  ram: MyString
+  storage: MyString
+  price: 9.99
+  quantity: 1
+
+two:
+  cpu: MyString
+  cooler: MyString
+  case: MyString
+  gpu: MyString
+  motherboard: MyString
+  psu: MyString
+  ram: MyString
+  storage: MyString
+  price: 9.99
+  quantity: 1

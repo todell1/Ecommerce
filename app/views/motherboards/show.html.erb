@@ -1,0 +1,25 @@
+<h1><%= @motherboard.name %></h1>
+
+<% if @motherboard.image.attached? %>
+    <%= image_tag @motherboard.image, class: 'w-100', style: 'max-width: 20rem;'%>
+<% end %>
+
+<p>Price: $<%= @motherboard.price %></p>
+
+
+
+<%= form_with url: cart_items_path, method: :post, local: true do |f| %>
+  <%= hidden_field_tag :type, 'Motherboard' %>
+  <%= hidden_field_tag :id, @motherboard.id %>
+
+  <div class="field">
+    <%= label_tag :quantity, 'Quantity' %><br />
+    <%= number_field_tag :quantity, 1, min: 1 %>
+  </div>
+
+  <div class="field"><br />
+    <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<br />
+<p><%= link_to 'Back to Motherboards', motherboards_path, class: 'btn btn-primary' %></p>

@@ -1,0 +1,26 @@
+<h1><%= @gpu.name %></h1>
+
+<% if @gpu.image.attached? %>
+    <%= image_tag @gpu.image, class: 'w-100', style: 'max-width: 20rem;'%>
+<% end %>
+
+<p>Price: $<%= @gpu.price %></p>
+
+
+<p>GPU Length: <%= @gpu.length %>mm</p>
+<p>GPU Slots: <%= @gpu.slots %></p>
+
+<%= form_with url: cart_items_path, method: :post, local: true do |f| %>
+  <%= hidden_field_tag :type, 'Gpu' %>
+  <%= hidden_field_tag :id, @gpu.id %>
+    <div class="field">
+        <%= label_tag :quantity, 'Quantity' %><br />
+        <%= number_field_tag :quantity, 1, min: 1 %>
+    </div>
+<br />
+    <div class="form-group">
+        <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
+    </div>
+<% end %>
+<br />
+<p><%= link_to 'Back to GPUs', gpus_path , class: 'btn btn-primary'%></p>

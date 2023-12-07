@@ -1,0 +1,39 @@
+<h1>PSUs</h1>
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @psus.each do |psu| %>
+      <tr>
+        <td><%= link_to psu.name, psu_path(psu) %></td>
+        <td><%= psu.price %></td>
+        <td class="d-flex align-items-center">
+          <%= form_with url: cart_items_path, method: :post, local: true do |f| %>
+            <%= hidden_field_tag :type, 'Psu' %>
+            <%= hidden_field_tag :id, psu.id %>
+
+            <div class="form-group mr-2" style="flex: 1;">
+              <%= label_tag :quantity, 'Quantity' %>
+              <%= number_field_tag :quantity, 1, min: 1, class: 'form-control' %>
+            </div>
+
+            <div class="form-group" style="flex: 0;">
+              <%= f.submit 'Add to Cart', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<style>
+  .form-group {
+    margin-bottom: 0;
+  }
+</style>
